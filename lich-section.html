@@ -1,0 +1,490 @@
+<div class="relative py-20 px-4 sm:px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI4c333hubnKIIXN1Tz1J3Wr219F3oh--NymqeJ-POMw&s=10"
+            alt="Background Logo"
+            class="w-full h-full object-cover object-center scale-105 opacity-10 filter blur-[1px]">
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-arirang-red mb-3">Kiểm tra lịch trống cho thuê</h2>
+            <p class="text-lg sm:text-xl font-normal text-slate-800 max-w-4xl mx-auto whitespace-nowrap">Chọn khoảng
+                thời gian bạn thuê và xem tạm tính giá.</p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 sm:gap-8 items-start">
+            <div class="md:col-span-7 bg-white/95 backdrop-blur-sm border border-pink-300 p-6 sm:p-8 rounded-2xl shadow-sm flex flex-col justify-between"
+                style="min-height: 520px;">
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 id="calendar-month-year" class="font-bold text-lg sm:text-xl text-slate-900">Tháng 12, 2026
+                        </h3>
+                        <div class="flex space-x-2">
+                            <button id="prev-month"
+                                class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">
+                                < </button>
+                                    <button id="next-month"
+                                        class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">></button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-slate-400 mb-3">
+                        <div>T2</div>
+                        <div>T3</div>
+                        <div>T4</div>
+                        <div>T5</div>
+                        <div>T6</div>
+                        <div>T7</div>
+                        <div>CN</div>
+                    </div>
+                    <div id="calendar-days" class="grid grid-cols-7 gap-2 text-sm">
+                    </div>
+                </div>
+
+                <div
+                    class="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-700">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3.5 h-3.5 rounded-md bg-red-200 inline-block"></span>
+                        <span>Đã có người thuê</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3.5 h-3.5 rounded-md bg-yellow-200 inline-block"></span>
+                        <span>Không khuyến khích thuê</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-3.5 h-3.5 rounded-md bg-slate-50 border border-slate-200 inline-block"></span>
+                        <span>Lịch trống</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 bg-white/95 backdrop-blur-sm border border-pink-300 p-6 sm:p-8 rounded-2xl shadow-sm flex flex-col justify-between"
+                style="min-height: 520px;">
+                <div>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900 mb-4 sm:mb-6 pb-3 border-b border-slate-100">
+                        Đơn thuê của bạn
+                    </h3>
+                    <div class="space-y-4 text-sm mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Ngày nhận:</span>
+                            <span id="summary-start" class="font-semibold text-slate-800">Chưa chọn</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Ngày trả:</span>
+                            <span id="summary-end" class="font-semibold text-slate-800">Chưa chọn</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">Tổng số ngày:</span>
+                            <span id="summary-days" class="font-semibold text-slate-800">0 ngày</span>
+                        </div>
+                        <div class="flex justify-between text-base pt-3 border-t border-slate-100">
+                            <span class="font-bold text-slate-800">Tạm tính:</span>
+                            <span id="summary-price" class="font-bold text-arirang-red text-lg">Chưa có giá</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-red-50/60 border border-red-100 p-4 rounded-xl text-xs sm:text-sm text-slate-700 leading-relaxed mb-6">
+                        <em>Đây là giá tham khảo theo thuật toán của máy, khi thương lượng cụ thể sẽ được giá tốt
+                            hơn.</em>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="btn-dat-lich"
+                        class="block w-full text-center bg-arirang-red hover:bg-arirang-darkred text-white font-medium py-3.5 rounded-xl shadow-md transition-all cursor-pointer">
+                        Tui muốn đặt lịcht thuê bomb
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="warning-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+    <div class="bg-white rounded-2xl p-6 max-w-md mx-4 shadow-xl border border-slate-100 text-center space-y-4">
+        <div
+            class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-xl font-bold">
+            ⚠️</div>
+        <h4 class="font-bold text-lg text-slate-900">Lưu ý ngày cận lịch</h4>
+        <p class="text-sm text-slate-700 leading-relaxed">
+            Ngày này sát ngày với người thuê đã cho trước, ngày này là ngày back up lấy sớm hơn/trả muộn hơn của người
+            trước. Nếu bạn muốn trao đổi với cả mình và người thuê để chắc chắn có bomb này hãy contact mình nhé.
+        </p>
+        <button id="close-warning"
+            class="w-full bg-arirang-red hover:bg-arirang-darkred text-white font-medium py-2.5 rounded-xl transition-all shadow-sm cursor-pointer">
+            OK mình hiểu rồi
+        </button>
+    </div>
+</div>
+
+
+<style>
+    @keyframes contactFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes contactFadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes contactSlideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-48px) scale(.96);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes contactSlideUp {
+        from {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateY(-32px) scale(.97);
+        }
+    }
+
+    #contact-popup:not(.hidden) {
+        animation: contactFadeIn .3s ease-out both;
+    }
+
+    #contact-popup:not(.hidden) .contact-card {
+        animation: contactSlideDown .45s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    #contact-popup.closing {
+        animation: contactFadeOut .25s ease-in both;
+    }
+
+    #contact-popup.closing .contact-card {
+        animation: contactSlideUp .25s ease-in both;
+    }
+</style>
+
+<div id="contact-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+    <div
+        class="contact-card bg-white rounded-2xl p-6 max-w-md mx-4 shadow-xl border border-slate-100 text-center space-y-4">
+        <div
+            class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center mx-auto text-xl font-bold">
+            💬</div>
+
+        <div class="space-y-1">
+            <h4 class="font-bold text-lg text-slate-900">Tui rất vui nếu như cậu thuê bomb của tui 💜</h4>
+            <p class="text-sm text-slate-600">Hãy contact mình qua một trong các phương thức sau</p>
+        </div>
+
+        <div class="space-y-2 text-left bg-slate-50 p-4 rounded-xl text-sm text-slate-800">
+            <p>🌐 <strong>Facebook:</strong> <a href="https://www.facebook.com/joonie.kim.742047" target="_blank"
+                    class="text-blue-600 underline">Joonie Kim</a></p>
+            <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/adnapatsuj/" target="_blank"
+                    class="text-pink-600 underline">@adnapatsuj</a></p>
+            <p class="flex items-center">
+                <span>📱 <strong>Zalo / SĐT:</strong> 0945163299</span>
+                <button id="copy-phone" type="button" title="Sao chép số điện thoại"
+                    class="ml-2 w-8 h-8 inline-flex items-center justify-center rounded-lg bg-white border border-slate-200 hover:bg-rose-50 text-slate-500 hover:text-arirang-red transition-all cursor-pointer">
+                    <svg id="copy-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+                        <path d="M5 15V5a2 2 0 0 1 2-2h10" stroke-linecap="round"></path>
+                    </svg>
+                    <svg id="check-icon" class="w-4 h-4 hidden text-green-600" fill="none" stroke="currentColor"
+                        stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <span id="copy-text" class="ml-2 text-xs text-green-600 hidden">Đã copy!</span>
+            </p>
+        </div>
+
+        <p class="text-sm text-slate-600">Tui đợi tin nhắn của cậu nhá 💌</p>
+
+        <button id="close-contact"
+            class="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 rounded-xl transition-all shadow-sm cursor-pointer">
+            Đóng
+        </button>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const now = new Date();
+        let currentYear = now.getFullYear();
+        let currentMonth = now.getMonth();
+
+        let startDate = null;
+        let endDate = null;
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const bookedRanges = [
+            {
+                start: new Date(2026, 11, 4),
+                end: new Date(2026, 11, 6)
+            }
+        ];
+
+        function isBookedRed(date) {
+            return bookedRanges.some(range => date >= range.start && date <= range.end);
+        }
+
+        function isYellowWarning(date) {
+            return bookedRanges.some(range => {
+                const prevDay = new Date(range.start);
+                prevDay.setDate(prevDay.getDate() - 1);
+
+                const nextDay = new Date(range.end);
+                nextDay.setDate(nextDay.getDate() + 1);
+
+                return date.getTime() === prevDay.getTime() || date.getTime() === nextDay.getTime();
+            });
+        }
+
+        const calendarDaysEl = document.getElementById('calendar-days');
+        const calendarMonthYearEl = document.getElementById('calendar-month-year');
+        const prevMonthBtn = document.getElementById('prev-month');
+        const nextMonthBtn = document.getElementById('next-month');
+
+        const summaryStartEl = document.getElementById('summary-start');
+        const summaryEndEl = document.getElementById('summary-end');
+        const summaryDaysEl = document.getElementById('summary-days');
+        const summaryPriceEl = document.getElementById('summary-price');
+
+        const warningPopup = document.getElementById('warning-popup');
+        const closeWarningBtn = document.getElementById('close-warning');
+
+        const contactPopup = document.getElementById('contact-popup');
+        const btnDatLich = document.getElementById('btn-dat-lich');
+        const closeContactBtn = document.getElementById('close-contact');
+
+        function openContact() {
+            contactPopup.classList.remove('closing', 'hidden');
+        }
+
+        function closeContact() {
+            contactPopup.classList.add('closing');
+            setTimeout(() => {
+                contactPopup.classList.add('hidden');
+                contactPopup.classList.remove('closing');
+            }, 250);
+        }
+
+        if (btnDatLich) btnDatLich.addEventListener('click', openContact);
+        if (closeContactBtn) closeContactBtn.addEventListener('click', closeContact);
+
+        contactPopup.addEventListener('click', (e) => {
+            if (e.target === contactPopup) closeContact();
+        });
+
+        const copyBtn = document.getElementById('copy-phone');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', async () => {
+                const phone = '0945163299';
+                try {
+                    await navigator.clipboard.writeText(phone);
+                } catch (err) {
+                    const t = document.createElement('textarea');
+                    t.value = phone;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    t.remove();
+                }
+                const copyIcon = document.getElementById('copy-icon');
+                const checkIcon = document.getElementById('check-icon');
+                const copyText = document.getElementById('copy-text');
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+                copyText.classList.remove('hidden');
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                    copyText.classList.add('hidden');
+                }, 1500);
+            });
+        }
+
+        if (closeWarningBtn) {
+            closeWarningBtn.addEventListener('click', () => {
+                warningPopup.classList.add('hidden');
+            });
+        }
+
+        if (!calendarDaysEl) return;
+
+        function renderCalendar(year, month) {
+            calendarMonthYearEl.innerText = `${monthNames[month]} ${year}`;
+            calendarDaysEl.innerHTML = '';
+            const nowMonth = new Date();
+            const isCurrentMonth = year === nowMonth.getFullYear() && month === nowMonth.getMonth();
+            prevMonthBtn.disabled = isCurrentMonth;
+            prevMonthBtn.classList.toggle('opacity-30', isCurrentMonth);
+            prevMonthBtn.classList.toggle('cursor-not-allowed', isCurrentMonth);
+            const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7;
+            const totalDays = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDiv = document.createElement('div');
+                calendarDaysEl.appendChild(emptyDiv);
+            }
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            for (let day = 1; day <= totalDays; day++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.innerText = day;
+                dayDiv.className = "h-10 sm:h-11 flex items-center justify-center rounded-xl text-sm font-medium transition-all select-none";
+
+                const thisDate = new Date(year, month, day);
+
+                if (thisDate < today) {
+                    dayDiv.classList.add('bg-slate-100', 'text-slate-300', 'cursor-not-allowed');
+                } else {
+                    const red = isBookedRed(thisDate);
+                    const yellow = isYellowWarning(thisDate);
+
+                    if (red) {
+                        dayDiv.classList.add('bg-red-200', 'text-red-800', 'font-bold', 'cursor-not-allowed', 'shadow-sm');
+                    } else if (yellow) {
+                        dayDiv.classList.add('bg-yellow-200', 'text-slate-900', 'font-bold', 'cursor-pointer', 'hover:bg-yellow-300', 'shadow-sm');
+                        dayDiv.addEventListener('click', () => {
+                            warningPopup.classList.remove('hidden');
+                            handleDateSelection(thisDate);
+                        });
+                    } else {
+                        dayDiv.classList.add('bg-slate-50', 'hover:bg-red-50', 'text-slate-700', 'cursor-pointer', 'border', 'border-slate-200');
+
+                        let isSelected = false;
+                        let isStart = false;
+                        let isEnd = false;
+
+                        if (startDate && !endDate && thisDate.getTime() === startDate.getTime()) {
+                            isStart = true;
+                        } else if (startDate && endDate) {
+                            if (thisDate.getTime() === startDate.getTime()) isStart = true;
+                            if (thisDate.getTime() === endDate.getTime()) isEnd = true;
+                            if (thisDate > startDate && thisDate < endDate) isSelected = true;
+                        }
+
+                        if (isStart || isEnd) {
+                            dayDiv.className = "h-10 sm:h-11 flex items-center justify-center rounded-xl text-sm font-bold bg-arirang-red text-white shadow-sm cursor-pointer";
+                        } else if (isSelected) {
+                            dayDiv.className = "h-10 sm:h-11 flex items-center justify-center text-sm font-medium bg-red-100 text-red-900 cursor-pointer";
+                        }
+
+                        dayDiv.addEventListener('click', () => {
+                            handleDateSelection(thisDate);
+                        });
+                    }
+                }
+
+                calendarDaysEl.appendChild(dayDiv);
+            }
+        }
+
+        function handleDateSelection(date) {
+            if (!startDate || (startDate && endDate)) {
+                startDate = date;
+                endDate = null;
+            } else if (startDate && !endDate) {
+                if (date < startDate) {
+                    startDate = date;
+                } else {
+                    let hasRedBetween = false;
+                    let temp = new Date(startDate);
+                    while (temp <= date) {
+                        if (isBookedRed(temp)) {
+                            hasRedBetween = true;
+                            break;
+                        }
+                        temp.setDate(temp.getDate() + 1);
+                    }
+
+                    if (hasRedBetween) {
+                        alert("Khoảng thời gian bạn chọn chứa ngày đã có người thuê! Vui lòng chọn lại.");
+                        startDate = null;
+                        endDate = null;
+                    } else {
+                        endDate = date;
+                    }
+                }
+            }
+            renderCalendar(currentYear, currentMonth);
+            updateSummary();
+        }
+
+        function updateSummary() {
+            if (!startDate || !endDate) {
+                summaryStartEl.innerText = startDate ? formatDate(startDate) : "Chưa chọn";
+                summaryEndEl.innerText = endDate ? formatDate(endDate) : "Chưa chọn";
+                summaryDaysEl.innerText = "0 ngày";
+                summaryPriceEl.innerText = "Chưa có giá";
+                return;
+            }
+
+            summaryStartEl.innerText = formatDate(startDate);
+            summaryEndEl.innerText = formatDate(endDate);
+
+            const diffTime = Math.abs(endDate - startDate);
+            const n = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            summaryDaysEl.innerText = `${n} ngày`;
+
+            let total = 0;
+            if (n == 1) {
+                total = 65;
+            } else if (n == 2) {
+                total = 65 * 2;
+            } else if (n === 3) {
+                total = 65 * 2 + 20;
+            } else {
+                total = (n - 2) * 65 + 40;
+            }
+
+            summaryPriceEl.innerText = total.toLocaleString('vi-VN') + '.000 đ';
+        }
+
+        function formatDate(d) {
+            return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
+        }
+
+        prevMonthBtn.addEventListener('click', () => {
+            const now = new Date();
+            if (currentYear === now.getFullYear() && currentMonth <= now.getMonth()) return;
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentYear, currentMonth);
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar(currentYear, currentMonth);
+        });
+
+        renderCalendar(currentYear, currentMonth);
+    })();
+</script>

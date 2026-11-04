@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMY Bomb Rental | Arirang Era</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        arirang: {
+                            red: '#e50914',
+                            darkred: '#b80710',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #gia-thue p,
+        .faq-btn + div p,
+        #check-lich .bg-red-50\/60 {
+            text-align: justify;
+        }
+
+        #gia-thue .text-center p {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="#gioi-thieu" class="flex items-center gap-3 group">
+                <div class="w-16 h-9 overflow-hidden flex items-center justify-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI4c333hubnKIIXN1Tz1J3Wr219F3oh--NymqeJ-POMw&s=10"
+                        alt="Logo Arirang" class="w-full h-auto object-contain">
+                </div>
+                <span class="font-extrabold text-base sm:text-lg text-slate-900 tracking-wider">ARMY BOMB RENTAL</span>
+            </a>
+
+             <nav class="hidden md:flex items-center space-x-8 text-base font-medium relative" id="nav-menu"></nav>
+                <span id="nav-indicator"
+                    class="absolute bottom-0 h-0.5 bg-arirang-red transition-all duration-300 ease-out rounded-full"></span>
+
+                <a href="#gioi-thieu" class="nav-link hover:text-arirang-red py-5 transition-colors"
+                    data-target="gioi-thieu">Giới thiệu</a>
+                <a href="#gia-thue" class="nav-link hover:text-arirang-red py-5 transition-colors"
+                    data-target="gia-thue">Giá thuê</a>
+                <a href="#chinh-sach" class="nav-link hover:text-arirang-red py-5 transition-colors"
+                    data-target="chinh-sach">Chính sách</a>
+                <a href="#check-lich" class="nav-link hover:text-arirang-red py-5 transition-colors"
+                    data-target="check-lich">Kiểm tra lịch trống</a>
+                <a href="about.html"
+                    class="nav-link text-slate-900 font-semibold hover:text-arirang-red py-5 transition-colors">About
+                    me</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-slate-900 focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 text-sm font-medium shadow-lg">
+            <a href="#gioi-thieu" class="block mobile-link hover:text-arirang-red">Giới thiệu</a>
+            <a href="#gia-thue" class="block mobile-link hover:text-arirang-red">Giá thuê</a>
+            <a href="#chinh-sach" class="block mobile-link hover:text-arirang-red">Chính sách</a>
+            <a href="#check-lich" class="block mobile-link hover:text-arirang-red">Kiểm tra lịch trống</a>
+            <a href="about.html" class="block text-slate-900 font-semibold">About me</a>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('.nav-link[data-target]');
+            const indicator = document.getElementById('nav-indicator');
+
+            function moveIndicator(link) {
+                if (!link) return;
+                indicator.style.width = `${link.offsetWidth}px`;
+                indicator.style.left = `${link.offsetLeft}px`;
+
+                navLinks.forEach(l => l.classList.remove('text-arirang-red', 'font-semibold'));
+                link.classList.add('text-arirang-red', 'font-semibold');
+            }
+
+            if (navLinks.length > 0) {
+                moveIndicator(navLinks[0]);
+            }
+
+            const sections = document.querySelectorAll('section[id]');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Kích hoạt khi section nằm ở vùng giữa trên của màn hình
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.getAttribute('id');
+                        const correspondingLink = document.querySelector(`.nav-link[data-target="${sectionId}"]`);
+                        if (correspondingLink) {
+                            moveIndicator(correspondingLink);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    moveIndicator(e.target);
+                });
+            });
+        });
+    </script>
+
+    <section id="gioi-thieu"
+        class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 px-6 text-center">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="introduce.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div class="relative z-20 max-w-5xl mx-auto px-4 text-white text-center space-y-4 sm:space-y-5">
+            <h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight uppercase text-arirang-red animate-slide-up opacity-0"
+                style="animation-delay: 0.1s;">
+                ARMY BOMB RENTAL
+            </h1>
+
+            <p class="text-base sm:text-xl md:text-2xl font-light text-slate-200 leading-relaxed animate-slide-up opacity-0"
+                style="animation-delay: 0.5s;">
+                Bạn đi xem concert, live viewing hay đơn giản chỉ là check-in ảnh đẹp up mạng xã hội nhưng chưa có đủ
+                kinh phí để sở hữu 1 chiếc bomb cho riêng mình?
+            </p>
+
+            <p class="text-base sm:text-xl md:text-2xl font-light text-slate-200 leading-relaxed animate-slide-up opacity-0 pb-2"
+                style="animation-delay: 1.3s;">
+                Đừng lo vì ở đây tui cho thuê bomb giá siêu học sinh sinh viên và siêu uy tín ^^
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-slide-up opacity-0 pt-2"
+                style="animation-delay: 1.7s;">
+                <a href="#check-lich"
+                    class="w-full sm:w-auto text-center bg-arirang-red hover:bg-arirang-darkred text-white font-semibold px-6 sm:px-8 py-3.5 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5 tracking-wide uppercase text-sm sm:text-base">
+                    CHECK LỊCH TRỐNG NGAY
+                </a>
+                <a href="https://www.facebook.com/joonie.kim.742047/posts/pfbid027h873MNiwyera8vQ5jaZ8RZ5ebCKgXxFVBLp8MaLwZtee43CQKYqB6unpztRZ9ejl"
+                    target="_blank"
+                    class="w-full sm:w-auto text-center bg-white hover:bg-slate-100 text-slate-900 font-semibold px-6 sm:px-8 py-3.5 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5 tracking-wide uppercase text-sm sm:text-base">
+                    Check legit mình ở đây
+                </a>
+            </div>
+        </div>
+        <style>
+            @keyframes slideUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-slide-up {
+                animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+        </style>
+    </section>
+
+    <section id="gia-thue" class="py-20 px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Bảng giá cho thuê</h2>
+                <p class="text-lg sm:text-xl text-slate-500">Chính sách linh hoạt, tối ưu chi phí cho mọi lịch trình.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:border-arirang-red transition-all relative overflow-hidden flex flex-col justify-between">
+                    <div
+                        class="absolute top-0 right-0 bg-arirang-red text-white text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                        Ngày có sự kiện
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Concert/Live Viewing/Event/...</h3>
+                        <div class="text-4xl font-extrabold text-arirang-red mb-4">
+                            65.000 đ <span class="text-base font-normal text-slate-500">/ngày</span>
+                        </div>
+                        <p class="text-base text-slate-600 leading-relaxed">
+                            Áp dụng cố định cho các ngày diễn ra concert, live viewing, event...
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:border-slate-400 transition-all relative overflow-hidden flex flex-col justify-between">
+                    <div
+                        class="absolute top-0 right-0 bg-slate-200 text-slate-700 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                        Ngày bình thường
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Ngày không có sự kiện</h3>
+                        <div class="text-4xl font-extrabold text-slate-900 mb-4">
+                            20.000 đ <span class="text-base font-normal text-slate-500">/ngày</span>
+                        </div>
+                        <p class="text-base text-slate-600 leading-relaxed">
+                            Áp dụng đối với các ngày không có sự kiện nào khác, hỗ trợ tối đa chi phí cho bạn thoải mái
+                            chuẩn bị.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 mb-8">
+                <div class="flex items-center gap-3 mb-3">
+                    <span
+                        class="w-8 h-8 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center font-bold text-base">💡</span>
+                    <h4 class="font-bold text-slate-900 text-lg">Ví dụ cách tính tiền thực tế:</h4>
+                </div>
+                <p class="text-base sm:text-lg text-slate-700 leading-relaxed pl-11">
+                    Bạn muốn thuê ngày <span class="font-semibold text-slate-900">4/12 - 7/12</span> đi concert tuy
+                    nhiên concert thực tế chỉ có ngày <span class="font-semibold text-arirang-red">4, 6 và 7</span> còn
+                    ngày <span class="font-semibold text-slate-900">5 không có</span> thì mình tính giá là <code
+                        class="bg-slate-100 text-arirang-red font-bold px-2 py-1 rounded">65*3 + 20 = 215</code>. Hữu
+                    duyên thấy số xấu quá mình fix 15 cá thành 200 luôn 😪.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div
+                    class="flex flex-col items-start p-6 rounded-2xl bg-white shadow-sm border border-slate-200 hover:border-slate-300 transition-all text-left">
+                    <div
+                        class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-lg font-bold mb-4 shadow-sm">
+                        🕒</div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Giờ giấc linh hoạt</h4>
+                    <p class="text-base text-slate-600 leading-relaxed">Mình siêu dễ tính trong việc tính ngày cho thuê
+                        nên có hỗ trợ thuê sớm hơn trong nửa ngày hoặc trả muộn trong nửa ngày hôm sau mà giá vẫn không
+                        đổi.</p>
+                </div>
+                <div
+                    class="flex flex-col items-start p-6 rounded-2xl bg-white shadow-sm border border-slate-200 hover:border-slate-300 transition-all text-left">
+                    <div
+                        class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-lg font-bold mb-4 shadow-sm">
+                        💵</div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Giá cả hợp lý</h4>
+                    <p class="text-base text-slate-600 leading-relaxed">Thuê nhiều ngày liên tục có fix, mình khá vui
+                        tính nên hữu duyên mình fix như cơm bữa :></p>
+                </div>
+                <div
+                    class="flex flex-col items-start p-6 rounded-2xl bg-white shadow-sm border border-slate-200 hover:border-slate-300 transition-all text-left">
+                    <div
+                        class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-lg font-bold mb-4 shadow-sm">
+                        🤝</div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Khách quen thân thiết</h4>
+                    <p class="text-base text-slate-600 leading-relaxed">Khách thuê lại lần 2 sẽ luôn nhận được mức giá
+                        tốt hơn và nhiều ưu đãi hơn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chinh-sach" class="relative py-20 px-4 sm:px-6 overflow-hidden border-t border-slate-200">
+
+        <div class="absolute inset-0 z-0">
+            <img src="https://kenh14cdn.com/203336854389633024/2026/3/20/hq720-10-134712-1773993556728-17739935569231580449276.jpg"
+                alt="Background Chính Sách" class="w-full h-full object-cover object-center scale-105 opacity-30">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-arirang-red mb-3">Chính sách cho thuê</h2>
+                <p class="text-lg sm:text-xl font-normal text-slate-800 max-w-4xl mx-auto whitespace-nowrap">Mọi quy
+                    định và hướng dẫn chi tiết giúp bạn dễ dàng hơn khi thuê ở mình</p>
+            </div>
+            <div class="space-y-4" id="faq-accordion">
+                
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>1. Thông tin về bomb mình cho thuê</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• Mình cho thuê là <strong class="text-arirang-red">bomb ver 4 </strong> </p>
+                            <p>• <strong class="text-arirang-red">Số lượng tối đa:</strong> 2 bomb/lần.</p>
+                            <p>• Khi thuê bạn sẽ nhận kèm dây đeo, túi đựng và hỗ trợ pin cho bạn test thử.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>2. Về việc đặt cọc bao nhiêu khi thuê</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• Nếu chỉ thuê 1 bạn sẽ phải cọc <strong class="text-arirang-red">700k</strong> cho 1 lần thuê, nếu bạn thuê cả 2 thì bạn chỉ phải cọc <strong class="text-arirang-red">1.300k</strong> cho 1 lần thuê.</p>
+                            <p>• Với các bạn ở Hà Nội muốn cọc ít hơn có thể để lại CCCD chính chủ cho mình và cọc 50%.</p>
+                            <p>• Tiền này sẽ được hoàn lại sau khi bomb về lại tay mình an toàn.</p>
+                            <p>• <strong class="text-arirang-red">Tiền cọc slot là 50k,</strong> gần đến ngày trao đổi bạn sẽ được liên hệ để cọc phần tiền thuê bomb nhé.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>3. Cách thức nhận Bomb và có cho thuê ngoại tỉnh</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• <strong class="text-arirang-red">Mình ưu tiên giao dịch trực tiếp ở Hà Nội</strong> để hạn chế tối thiểu bomb bị xước hoặc hư hỏng do bên vận chuyển.</p>
+                            <p>• Mình vẫn sẽ hỗ trợ ship đối với các bạn không thể gdtt. Mình hỗ trợ ship chiều về, ship đi các bạn trả. Mình sẽ cố gắng gói sao cho không df và bạn cũng phải có trách nhiệm gói sao cho không df khi trả về cho mình. 
+                                Lúc gói hàng hoặc unbox sẽ đều ghi lại quá trình để có bằng chứng làm việc với cả bạn và đơn vị vận chuyển trong trường hợp xấu nhất.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>4. Tình trạng Bomb</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• <strong class="text-arirang-red">Like new 99%</strong> vì mình chỉ mới bóc seal ngắm.</p>
+                            <p>• Mỗi lần cho thuê thì mình sẽ đều chủ động quay video check tình trạng rõ ràng trước khi giao.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>5. Trong trường hợp hư hỏng trong lúc thuê</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• Sự cố hỏng hóc gây ra từ bạn: Đền bù phần trăm tương ứng sau khi hai bên thương lượng với nhau một cách hợp lý nhất. Sau đấy trừ vào tiền cọc và mình sẽ hoàn phần dư cho bạn.<strong class="text-arirang-red"> Nếu thiệt hại nặng hơn bạn bắt buộc bồi thường toàn bộ giá trị bomb.</strong></p>
+                            <p>• Sự cố hỏng hóc gây ra từ vận chuyển: Đền bù tương ứng với bên vận chuyển chi trả.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>6. Chính sách hủy lịch/đổi lịch/quá thời gian trả bomb</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                            <p>• Hỗ trợ đổi lịch <strong class="text-arirang-red">free</strong> miễn là ngày đó còn trống.</p>
+                            <p>• Đối với các trường hợp chỉ mới cọc tiền thuê slot: sẽ mất phần tiền cọc đó.</p>
+                            <p>• Đối với các trường hợp đã cọc tiền thuê bomb: Hỗ trợ <strong class="text-arirang-red">hoàn cọc 100% cho các trường hợp bất khả kháng</strong> (như thiên tai, concert hủy, ...). <strong class="text-arirang-red">Các trường hợp hủy lịch khác chỉ hoàn cọc 50%,</strong> bạn có quyền nhượng slot thuê cho các bạn khác mà không mất tiền cọc.</p>
+                            <p>• Nếu giả sử bạn chưa kịp trả đúng hạn thì mình hỗ trợ trả muộn thêm trong ngày hôm sau cho bạn sắp xếp thời gian. Quá hạn sẽ bị tính phí thêm 1 ngày không có sự kiện.<strong class="text-arirang-red"> Sau 2 ngày không trả mình xin phép CBGD.</strong> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
+                        <span>7. Cách thuê và phương thức liên hệ</span>
+                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                            <p>• Để tiết kiệm thời gian, bạn hãy chủ động check lịch trống ở bên dưới sau đó contact trực tiếp với mình qua một trong các phương thức sau:</p>
+                            <div class="flex flex-wrap gap-3 pt-1">
+                                <a href="https://www.facebook.com/joonie.kim.742047" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 text-sm font-semibold hover:bg-blue-100 transition-colors">🌐 Facebook</a>
+                                <a href="https://www.instagram.com/adnapatsuj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-50 text-pink-700 text-sm font-semibold hover:bg-pink-100 transition-colors">📸 Instagram</a>
+                                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-slate-800 text-sm font-semibold">📱 Zalo/SĐT: 0945163299</div>
+                            </div>
+                            <p>• Ngoài ra có bất cứ thắc mắc gì hãy cứ nhắn hỏi mình nhé!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+    <section id="check-lich" class="py-16 sm:py-20 px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
+        <div id="lich-container"></div>
+    </section>
+
+    <footer class="py-8 text-center text-sm text-slate-500 border-t border-slate-200 bg-white">
+        <p>© 2026 haanh-create. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+                const isOpen = content.style.maxHeight;
+
+                faqButtons.forEach(btn => {
+                    const otherContent = btn.nextElementSibling;
+                    const otherIcon = btn.querySelector('.faq-icon');
+                    otherContent.style.maxHeight = null;
+                    otherIcon.style.transform = 'rotate(0deg)';
+                });
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        fetch('lich-section.html')
+                .then(response => response.text())
+                .then(data => {
+                    const container = document.getElementById('lich-container');
+                    container.innerHTML = data;
+
+                    container.querySelectorAll('script').forEach(oldScript => {
+                        const newScript = document.createElement('script');
+                        newScript.textContent = oldScript.textContent;
+                        oldScript.replaceWith(newScript);
+                    });
+                });
+
+        function initCalendar() {
+            const now = new Date();
+            let currentYear = now.getFullYear();
+            let currentMonth = now.getMonth();
+
+            let startDate = null;
+            let endDate = null;
+
+            const monthNames = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+
+            const calendarDaysEl = document.getElementById('calendar-days');
+            const calendarMonthYearEl = document.getElementById('calendar-month-year');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+
+            const summaryStartEl = document.getElementById('summary-start');
+            const summaryEndEl = document.getElementById('summary-end');
+            const summaryDaysEl = document.getElementById('summary-days');
+            const summaryPriceEl = document.getElementById('summary-price');
+
+            if (!calendarDaysEl) return;
+
+            function renderCalendar(year, month) {
+                calendarMonthYearEl.innerText = `${monthNames[month]}, ${year}`;
+                calendarDaysEl.innerHTML = '';
+
+                const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7;
+                const totalDays = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayIndex; i++) {
+                    const emptyDiv = document.createElement('div');
+                    calendarDaysEl.appendChild(emptyDiv);
+                }
+
+                for (let day = 1; day <= totalDays; day++) {
+                    const dayDiv = document.createElement('div');
+                    dayDiv.innerText = day;
+                    dayDiv.className = "h-9 sm:h-10 flex items-center justify-center rounded-xl text-sm font-medium transition-all cursor-pointer select-none";
+
+                    const thisDate = new Date(year, month, day);
+                    const todayDateObj = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                    if (thisDate < todayDateObj) {
+                        dayDiv.classList.add('text-slate-300', 'bg-slate-50', 'cursor-not-allowed');
+                    } else {
+                        dayDiv.classList.add('hover:bg-red-50', 'text-slate-700');
+
+                        let isSelected = false;
+                        let isStart = false;
+                        let isEnd = false;
+
+                        if (startDate && !endDate && thisDate.getTime() === startDate.getTime()) {
+                            isStart = true;
+                        } else if (startDate && endDate) {
+                            if (thisDate.getTime() === startDate.getTime()) isStart = true;
+                            if (thisDate.getTime() === endDate.getTime()) isEnd = true;
+                            if (thisDate > startDate && thisDate < endDate) isSelected = true;
+                        }
+
+                        if (isStart || isEnd) {
+                            dayDiv.className = "h-9 sm:h-10 flex items-center justify-center rounded-xl text-sm font-bold bg-arirang-red text-white shadow-sm";
+                        } else if (isSelected) {
+                            dayDiv.className = "h-9 sm:h-10 flex items-center justify-center text-sm font-medium bg-red-100 text-red-900";
+                        }
+
+                        dayDiv.addEventListener('click', () => {
+                            handleDateClick(thisDate);
+                        });
+                    }
+
+                    calendarDaysEl.appendChild(dayDiv);
+                }
+            }
+
+            function handleDateClick(date) {
+                if (!startDate || (startDate && endDate)) {
+                    startDate = date;
+                    endDate = null;
+                } else if (startDate && !endDate) {
+                    if (date < startDate) {
+                        startDate = date;
+                    } else {
+                        endDate = date;
+                    }
+                }
+                renderCalendar(currentYear, currentMonth);
+                updateSummary();
+            }
+
+            function updateSummary() {
+                if (!startDate) {
+                    summaryStartEl.innerText = "Chưa chọn";
+                    summaryEndEl.innerText = "Chưa chọn";
+                    summaryDaysEl.innerText = "0 ngày";
+                    summaryPriceEl.innerText = "0 đ";
+                    return;
+                }
+
+                const formatDate = (d) => `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
+                summaryStartEl.innerText = formatDate(startDate);
+
+                if (!endDate) {
+                    summaryEndEl.innerText = "Chưa chọn";
+                    summaryDaysEl.innerText = "1 ngày (tạm tính)";
+                    let price = 65 * 2;
+                    summaryPriceEl.innerText = price.toLocaleString('vi-VN') + '.000 đ';
+                    return;
+                }
+
+                summaryEndEl.innerText = formatDate(endDate);
+
+                const diffTime = Math.abs(endDate - startDate);
+                const n = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+                summaryDaysEl.innerText = `${n} ngày`;
+
+                let total = 0;
+                if (n == 1) {
+                    total = 65;
+                } else if (n == 2) {
+                    total = 65 * 2;
+                } else if (n === 3) {
+                    total = 65 * 2 + 20;
+                } else {
+                    total = (n - 2) * 65 + 40;
+                }
+
+                summaryPriceEl.innerText = total.toLocaleString('vi-VN') + '.000 đ';
+            }
+
+            prevMonthBtn.addEventListener('click', () => {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar(currentYear, currentMonth);
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar(currentYear, currentMonth);
+            });
+
+            renderCalendar(currentYear, currentMonth);
+        }
+    </script>
+</body>
+
+</html>
