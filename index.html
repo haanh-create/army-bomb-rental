@@ -209,7 +209,7 @@
                     <div>
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Concert/Live Viewing/Event/...</h3>
                         <div class="text-4xl font-extrabold text-arirang-red mb-4">
-                            65.000 đ <span class="text-base font-normal text-slate-500">/ngày</span>
+                            70.000 đ <span class="text-base font-normal text-slate-500">/ngày</span>
                         </div>
                         <p class="text-base text-slate-600 leading-relaxed">
                             Áp dụng cố định cho các ngày diễn ra concert, live viewing, event...
@@ -246,8 +246,8 @@
                     Bạn muốn thuê ngày <span class="font-semibold text-slate-900">4/12 - 7/12</span> đi concert tuy
                     nhiên concert thực tế chỉ có ngày <span class="font-semibold text-arirang-red">4, 6 và 7</span> còn
                     ngày <span class="font-semibold text-slate-900">5 không có</span> thì mình tính giá là <code
-                        class="bg-slate-100 text-arirang-red font-bold px-2 py-1 rounded">65*3 + 20 = 215</code>. Hữu
-                    duyên thấy số xấu quá mình fix 15 cá thành 200 luôn 😪.
+                        class="bg-slate-100 text-arirang-red font-bold px-2 py-1 rounded">70*3 + 20 = 230</code>. Hữu
+                    duyên thấy số xấu quá mình fix 30 cá thành 200 luôn 😪.
                 </p>
             </div>
 
@@ -566,7 +566,7 @@
                 if (!endDate) {
                     summaryEndEl.innerText = "Chưa chọn";
                     summaryDaysEl.innerText = "1 ngày (tạm tính)";
-                    let price = 65 * 2;
+                    let price = 70 * 2;
                     summaryPriceEl.innerText = price.toLocaleString('vi-VN') + '.000 đ';
                     return;
                 }
@@ -579,13 +579,13 @@
 
                 let total = 0;
                 if (n == 1) {
-                    total = 65;
+                    total = 70;
                 } else if (n == 2) {
-                    total = 65 * 2;
+                    total = 70 * 2;
                 } else if (n === 3) {
-                    total = 65 * 2 + 20;
+                    total = 70 * 2 + 20;
                 } else {
-                    total = (n - 2) * 65 + 40;
+                    total = (n - 2) * 70 + 40;
                 }
 
                 summaryPriceEl.innerText = total.toLocaleString('vi-VN') + '.000 đ';
