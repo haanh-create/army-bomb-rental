@@ -215,18 +215,16 @@
 <div id="contact-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
     <div
         class="contact-card bg-white rounded-2xl p-6 max-w-md mx-4 shadow-xl border border-slate-100 text-center space-y-4">
-        <div
-            class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center mx-auto text-xl font-bold">
-            💬</div>
+        
 
         <div class="space-y-1">
-            <h4 class="font-bold text-lg text-slate-900">Tui rất vui nếu như cậu thuê bomb của tui 💜</h4>
-            <p class="text-sm text-slate-600">Hãy contact mình qua một trong các phương thức sau</p>
+            <h4 class="font-bold text-lg text-slate-900">Cảm ơn cậu đã tin tưởng 💜</h4>
+            <p class="text-sm text-slate-600">Hãy liên hệ với mình qua một trong các phương thức sau</p>
         </div>
 
         <div class="space-y-2 text-left bg-slate-50 p-4 rounded-xl text-sm text-slate-800">
             <p>🌐 <strong>Facebook:</strong> <a href="https://www.facebook.com/joonie.kim.742047" target="_blank"
-                    class="text-blue-600 underline">Joonie Kim</a></p>
+                    class="text-blue-600 underline">Nguyen Ha</a></p>
             <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/adnapatsuj/" target="_blank"
                     class="text-pink-600 underline">@adnapatsuj</a></p>
             <p class="flex items-center flex-wrap">
@@ -264,7 +262,7 @@
 
         let startDate = null;
         let endDate = null;
-        let warnAcknowledged = false; // đã hiện popup vàng cho lượt chọn hiện tại
+        let warnAcknowledged = false;
 
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let currentBomb = 1;
@@ -386,7 +384,6 @@
             const cellH = "h-10 sm:h-11";
             const base = "relative w-full h-full flex items-center justify-center rounded-xl text-sm transition-all";
 
-            // Ô trống đầu tháng
             for (let i = 0; i < firstDayIndex; i++) {
                 const empty = document.createElement('div');
                 empty.className = cellH;
@@ -400,7 +397,7 @@
 
             for (let day = 1; day <= totalDays; day++) {
                 const thisDate = new Date(year, month, day);
-                const col = (firstDayIndex + day - 1) % 7; // 0 = T2 ... 6 = CN
+                const col = (firstDayIndex + day - 1) % 7; 
 
                 const cell = document.createElement('div');
                 cell.className = `relative select-none ${cellH}`;
@@ -409,10 +406,8 @@
                 label.innerText = day;
 
                 if (thisDate < today) {
-                    // Ngày đã qua
                     label.className = base + " font-medium bg-slate-100 text-slate-300 cursor-not-allowed";
                 } else if (isBookedRed(thisDate)) {
-                    // Đã có người thuê (đỏ nhạt, không bấm được)
                     label.className = base + " font-bold bg-red-200 text-red-800 cursor-not-allowed shadow-sm";
                 } else {
                     const yellow = isYellowWarning(thisDate);
@@ -420,7 +415,6 @@
                     const isEnd = endDate && thisDate.getTime() === endDate.getTime();
                     const inBand = hasRange && thisDate >= startDate && thisDate <= endDate;
 
-                    // Dải nền nối liền từ ngày bắt đầu đến ngày kết thúc
                     if (inBand) {
                         const connectLeft = thisDate > startDate && col !== 0 && day !== 1;
                         const connectRight = thisDate < endDate && col !== 6 && day !== totalDays;
@@ -435,10 +429,8 @@
                     }
 
                     if (isStart || isEnd) {
-                        // Hai đầu: đỏ đậm (áp dụng cả cho ô vàng)
                         label.className = base + " font-bold bg-arirang-red text-white shadow-md cursor-pointer";
                     } else if (inBand) {
-                        // Các ngày ở giữa: chỉ chữ, nền là dải phía sau
                         label.className = base + " font-semibold text-red-700 cursor-pointer";
                     } else if (yellow) {
                         label.className = base + " font-bold bg-yellow-200 text-slate-900 hover:bg-yellow-300 shadow-sm cursor-pointer";
@@ -453,7 +445,6 @@
                 calendarDaysEl.appendChild(cell);
             }
 
-            // Luôn đủ 6 hàng (42 ô) để khung lịch không bị nhảy độ cao giữa các tháng
             const filled = firstDayIndex + totalDays;
             for (let i = filled; i < 42; i++) {
                 const empty = document.createElement('div');
@@ -466,16 +457,13 @@
             let conflict = false;
 
             if (!startDate || (startDate && endDate)) {
-                // Chọn ngày bắt đầu mới
                 startDate = date;
                 endDate = null;
                 warnAcknowledged = false;
             } else if (date < startDate) {
-                // Bấm ngày trước ngày bắt đầu -> đổi ngày bắt đầu
                 startDate = date;
                 warnAcknowledged = false;
             } else {
-                // Chọn ngày kết thúc: kiểm tra có đè lên ngày đã thuê không
                 let temp = new Date(startDate);
                 while (temp <= date) {
                     if (isBookedRed(temp)) {
@@ -499,16 +487,13 @@
             updateHint();
 
             if (conflict) {
-                // Trùng lịch: chỉ hiện popup trùng lịch (không hiện popup ô vàng), lựa chọn đã được xóa để chọn lại từ đầu
                 conflictPopup.classList.remove('hidden');
             } else if (isYellow && !warnAcknowledged) {
-                // Ô vàng: hiện cảnh báo 1 lần cho mỗi lượt chọn
                 warningPopup.classList.remove('hidden');
                 warnAcknowledged = true;
             }
         }
 
-        // Dòng nhắc: hiện khi đang chọn, ẩn khi đã chọn xong
         function updateHint() {
             let text = '';
             if (!startDate) text = 'Hãy chọn ngày bắt đầu';
@@ -522,14 +507,12 @@
             }
         }
 
-        // Đổi giữa Army Bomb 1 / 2
         function setBomb(n) {
             currentBomb = n;
             startDate = null;
             endDate = null;
             warnAcknowledged = false;
 
-            // Luôn quay về tháng hiện tại khi đổi bomb
             const today = new Date();
             currentYear = today.getFullYear();
             currentMonth = today.getMonth();
