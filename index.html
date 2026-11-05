@@ -453,49 +453,62 @@
                     </div>
                 </div>
 
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2">
-                <div class="flex items-center gap-3 mb-5">
-                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">🔁</span>
-                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Đổi lịch, hủy lịch và lấy sớm/trả muôn</h3>
-                </div>
-                    <div class="grid lg:grid-cols-2 gap-6">
-                        <div class="space-y-3">
-                            <p class="font-bold text-slate-900">Đổi lịch / hủy lịch</p>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Đổi lịch thuê sang một ngày khác đang trống</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Miễn phí</span>
-                        </div>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Khi đã cọc slot nhưng muốn hủy</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold sm:text-right">Không hoàn cọc</span>
-                        </div>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Trong trường hợp bất khả kháng (thiên tai, concert hủy, vấn đề không thể lường trước ...)</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Hoàn cọc 100%</span>
-                        </div>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Hủy khi đã cọc tiền bomb với lý do cá nhân</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold sm:text-right">Hoàn cọc 50%</span>
-                        </div>
-                            <p class="policy-text text-sm sm:text-base text-slate-700 leading-relaxed">Tuy nhiên thay vì hủy bạn có quyền nhượng slot thuê cho bạn khác và không mất tiền cọc.</p>
-                        </div>
-                        <div class="space-y-3">
-                            <p class="font-bold text-slate-900">Lấy sớm hơn/trả muộn</p>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Lấy sớm để chuẩn bị/trả muộn do chưa sắp xếp được trong vòng đến 12h trước/sau ngày thuê</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Miễn phí</span>
-                        </div>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900"> Trong trường hợp bị tính là chậm ngày</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold sm:text-right">Thêm phí 1 ngày không có sự kiện</span>
-                        </div>
-                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                            <span class="text-base text-slate-900">Sau 2 ngày vẫn chưa trả</span>
-                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold sm:text-right">KHÔNG HOÀN CỌC VÀ CBGD</span>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+<div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2">
+    <div class="flex items-center gap-3 mb-5">
+        <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">🔁</span>
+        <h3 class="font-bold text-lg sm:text-xl text-slate-900">Đổi lịch, hủy lịch và lấy sớm/trả muộn</h3>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6">
+        <div class="space-y-3">
+            <p class="font-bold text-slate-900">Đổi lịch / hủy lịch</p>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Đổi lịch thuê sang một ngày khác đang trống</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Miễn phí</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Khi đã cọc slot nhưng muốn hủy</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold">Không hoàn cọc</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Trong trường hợp bất khả kháng (thiên tai, concert hủy, vấn đề không thể lường trước ...)</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Hoàn cọc 100%</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Hủy khi đã cọc tiền bomb với lý do cá nhân</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold">Hoàn cọc 50%</span>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <p class="font-bold text-slate-900">Lấy sớm hơn/trả muộn</p>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Lấy sớm để chuẩn bị/trả muộn do chưa sắp xếp được trong vòng đến 12h trước/sau ngày thuê</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold">Miễn phí</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Trong trường hợp bị tính là chậm ngày</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold">Thêm 15k/1 ngày chậm</span>
+            </div>
+
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span class="text-base text-slate-900">Sau 2 ngày vẫn chưa trả</span>
+                <span class="inline-block shrink-0 self-start sm:self-auto sm:max-w-[55%] text-center px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold">KHÔNG HOÀN CỌC VÀ CBGD</span>
+            </div>
+        </div>
+
+        <p class="policy-text lg:col-span-2 w-full text-sm sm:text-base text-slate-700 leading-relaxed">
+            Tuy nhiên thay vì hủy bạn có quyền nhượng slot thuê cho bạn khác và không mất tiền cọc.
+        </p>
+    </div>
+</div>
+
 
                 <div id="lien-he" class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2 bg-rose-50/90 scroll-mt-24">
                 <div class="flex items-center gap-3 mb-5">
