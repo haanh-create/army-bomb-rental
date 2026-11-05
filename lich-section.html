@@ -12,21 +12,33 @@
                 thời gian bạn thuê và xem tạm tính giá.</p>
         </div>
 
-        <div class="grid md:grid-cols-12 gap-6 sm:gap-8 items-start">
+        <div class="grid md:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             <div class="md:col-span-7 bg-white/95 backdrop-blur-sm border border-pink-300 p-6 sm:p-8 rounded-2xl shadow-sm flex flex-col justify-between"
                 style="min-height: 520px;">
                 <div>
+                    <!-- Chọn Army Bomb -->
+                    <div class="flex gap-2 mb-5">
+                        <button type="button" data-bomb="1"
+                            class="bomb-tab px-4 py-2 rounded-xl text-sm font-semibold bg-arirang-red text-white shadow-md transition-all cursor-pointer">Army Bomb 1</button>
+                        <button type="button" data-bomb="2"
+                            class="bomb-tab px-4 py-2 rounded-xl text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all cursor-pointer">Army Bomb 2</button>
+                    </div>
+
                     <div class="flex items-center justify-between mb-6">
-                        <h3 id="calendar-month-year" class="font-bold text-lg sm:text-xl text-slate-900">Tháng 12, 2026
-                        </h3>
+                        <h3 id="calendar-month-year" class="font-bold text-lg sm:text-xl text-slate-900">November 2026</h3>
                         <div class="flex space-x-2">
                             <button id="prev-month"
-                                class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">
-                                < </button>
-                                    <button id="next-month"
-                                        class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">></button>
+                                class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">&lt;</button>
+                            <button id="next-month"
+                                class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center font-bold transition-all">&gt;</button>
                         </div>
                     </div>
+                    <!-- Dòng nhắc chọn ngày (hiện rồi ẩn) -->
+                    <div class="h-8 mb-2 flex items-center justify-center">
+                        <span id="select-hint"
+                            class="text-xs sm:text-sm font-medium text-arirang-red bg-rose-50 border border-rose-100 px-3 py-1 rounded-full opacity-0 -translate-y-1 transition-all duration-300 pointer-events-none">Hãy chọn ngày bắt đầu</span>
+                    </div>
+
                     <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-slate-400 mb-3">
                         <div>T2</div>
                         <div>T3</div>
@@ -65,6 +77,10 @@
                     </h3>
                     <div class="space-y-4 text-sm mb-6">
                         <div class="flex justify-between">
+                            <span class="text-slate-500">Loại bomb:</span>
+                            <span id="summary-bomb" class="font-semibold text-slate-800">Army Bomb 1</span>
+                        </div>
+                        <div class="flex justify-between">
                             <span class="text-slate-500">Ngày nhận:</span>
                             <span id="summary-start" class="font-semibold text-slate-800">Chưa chọn</span>
                         </div>
@@ -78,7 +94,7 @@
                         </div>
                         <div class="flex justify-between text-base pt-3 border-t border-slate-100">
                             <span class="font-bold text-slate-800">Tạm tính:</span>
-                            <span id="summary-price" class="font-bold text-arirang-red text-lg">Chưa có giá</span>
+                            <span id="summary-price" class="font-bold text-arirang-red text-lg">---</span>
                         </div>
                     </div>
 
@@ -92,7 +108,7 @@
                 <div>
                     <button id="btn-dat-lich"
                         class="block w-full text-center bg-arirang-red hover:bg-arirang-darkred text-white font-medium py-3.5 rounded-xl shadow-md transition-all cursor-pointer">
-                        Tui muốn đặt lịcht thuê bomb
+                        Tui muốn đặt lịch thuê bomb
                     </button>
                 </div>
             </div>
@@ -106,13 +122,29 @@
             class="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-xl font-bold">
             ⚠️</div>
         <h4 class="font-bold text-lg text-slate-900">Lưu ý ngày cận lịch</h4>
-        <p class="text-sm text-slate-700 leading-relaxed">
+        <p class="text-sm text-slate-700 leading-relaxed text-justify">
             Ngày này sát ngày với người thuê đã cho trước, ngày này là ngày back up lấy sớm hơn/trả muộn hơn của người
             trước. Nếu bạn muốn trao đổi với cả mình và người thuê để chắc chắn có bomb này hãy contact mình nhé.
         </p>
         <button id="close-warning"
             class="w-full bg-arirang-red hover:bg-arirang-darkred text-white font-medium py-2.5 rounded-xl transition-all shadow-sm cursor-pointer">
-            OK mình hiểu rồi
+            Okay mình hiểu rồi nhé
+        </button>
+    </div>
+</div>
+
+<!-- POPUP TRÙNG LỊCH -->
+<div id="conflict-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+    <div class="bg-white rounded-2xl p-6 max-w-md mx-4 shadow-xl border border-slate-100 text-center space-y-4">
+        <div
+            class="w-12 h-12 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center mx-auto text-xl font-bold">
+            🚫</div>
+        <p class="text-sm text-slate-700 leading-relaxed">
+            Oh no, ngày này trùng với bạn đã cho thuê trước rùi. Bạn vui lòng chọn lịch khác nhé
+        </p>
+        <button id="close-conflict"
+            class="w-full bg-arirang-red hover:bg-arirang-darkred text-white font-medium py-2.5 rounded-xl transition-all shadow-sm cursor-pointer">
+            Okay mình hiểu rồi nhé
         </button>
     </div>
 </div>
@@ -197,7 +229,7 @@
                     class="text-blue-600 underline">Joonie Kim</a></p>
             <p>📸 <strong>Instagram:</strong> <a href="https://www.instagram.com/adnapatsuj/" target="_blank"
                     class="text-pink-600 underline">@adnapatsuj</a></p>
-            <p class="flex items-center">
+            <p class="flex items-center flex-wrap">
                 <span>📱 <strong>Zalo / SĐT:</strong> 0945163299</span>
                 <button id="copy-phone" type="button" title="Sao chép số điện thoại"
                     class="ml-2 w-8 h-8 inline-flex items-center justify-center rounded-lg bg-white border border-slate-200 hover:bg-rose-50 text-slate-500 hover:text-arirang-red transition-all cursor-pointer">
@@ -232,21 +264,21 @@
 
         let startDate = null;
         let endDate = null;
+        let warnAcknowledged = false; // đã hiện popup vàng cho lượt chọn hiện tại
 
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const bookedRanges = [
-            {
-                start: new Date(2026, 11, 4),
-                end: new Date(2026, 11, 6)
-            }
-        ];
+        let currentBomb = 1;
+        const bookings = {
+            1: [{ start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) }],
+            2: [{ start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) }]
+        };
 
         function isBookedRed(date) {
-            return bookedRanges.some(range => date >= range.start && date <= range.end);
+            return bookings[currentBomb].some(range => date >= range.start && date <= range.end);
         }
 
         function isYellowWarning(date) {
-            return bookedRanges.some(range => {
+            return bookings[currentBomb].some(range => {
                 const prevDay = new Date(range.start);
                 prevDay.setDate(prevDay.getDate() - 1);
 
@@ -266,9 +298,14 @@
         const summaryEndEl = document.getElementById('summary-end');
         const summaryDaysEl = document.getElementById('summary-days');
         const summaryPriceEl = document.getElementById('summary-price');
+        const summaryBombEl = document.getElementById('summary-bomb');
+        const hintEl = document.getElementById('select-hint');
+        const bombTabs = document.querySelectorAll('.bomb-tab');
 
         const warningPopup = document.getElementById('warning-popup');
         const closeWarningBtn = document.getElementById('close-warning');
+        const conflictPopup = document.getElementById('conflict-popup');
+        const closeConflictBtn = document.getElementById('close-conflict');
 
         const contactPopup = document.getElementById('contact-popup');
         const btnDatLich = document.getElementById('btn-dat-lich');
@@ -321,6 +358,12 @@
             });
         }
 
+        if (closeConflictBtn) {
+            closeConflictBtn.addEventListener('click', () => {
+                conflictPopup.classList.add('hidden');
+            });
+        }
+
         if (closeWarningBtn) {
             closeWarningBtn.addEventListener('click', () => {
                 warningPopup.classList.add('hidden');
@@ -340,103 +383,181 @@
             const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7;
             const totalDays = new Date(year, month + 1, 0).getDate();
 
+            const cellH = "h-10 sm:h-11";
+            const base = "relative w-full h-full flex items-center justify-center rounded-xl text-sm transition-all";
+
+            // Ô trống đầu tháng
             for (let i = 0; i < firstDayIndex; i++) {
-                const emptyDiv = document.createElement('div');
-                calendarDaysEl.appendChild(emptyDiv);
+                const empty = document.createElement('div');
+                empty.className = cellH;
+                calendarDaysEl.appendChild(empty);
             }
 
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-            for (let day = 1; day <= totalDays; day++) {
-                const dayDiv = document.createElement('div');
-                dayDiv.innerText = day;
-                dayDiv.className = "h-10 sm:h-11 flex items-center justify-center rounded-xl text-sm font-medium transition-all select-none";
+            const hasRange = startDate && endDate && startDate.getTime() !== endDate.getTime();
 
+            for (let day = 1; day <= totalDays; day++) {
                 const thisDate = new Date(year, month, day);
+                const col = (firstDayIndex + day - 1) % 7; // 0 = T2 ... 6 = CN
+
+                const cell = document.createElement('div');
+                cell.className = `relative select-none ${cellH}`;
+
+                const label = document.createElement('div');
+                label.innerText = day;
 
                 if (thisDate < today) {
-                    dayDiv.classList.add('bg-slate-100', 'text-slate-300', 'cursor-not-allowed');
+                    // Ngày đã qua
+                    label.className = base + " font-medium bg-slate-100 text-slate-300 cursor-not-allowed";
+                } else if (isBookedRed(thisDate)) {
+                    // Đã có người thuê (đỏ nhạt, không bấm được)
+                    label.className = base + " font-bold bg-red-200 text-red-800 cursor-not-allowed shadow-sm";
                 } else {
-                    const red = isBookedRed(thisDate);
                     const yellow = isYellowWarning(thisDate);
+                    const isStart = startDate && thisDate.getTime() === startDate.getTime();
+                    const isEnd = endDate && thisDate.getTime() === endDate.getTime();
+                    const inBand = hasRange && thisDate >= startDate && thisDate <= endDate;
 
-                    if (red) {
-                        dayDiv.classList.add('bg-red-200', 'text-red-800', 'font-bold', 'cursor-not-allowed', 'shadow-sm');
-                    } else if (yellow) {
-                        dayDiv.classList.add('bg-yellow-200', 'text-slate-900', 'font-bold', 'cursor-pointer', 'hover:bg-yellow-300', 'shadow-sm');
-                        dayDiv.addEventListener('click', () => {
-                            warningPopup.classList.remove('hidden');
-                            handleDateSelection(thisDate);
-                        });
-                    } else {
-                        dayDiv.classList.add('bg-slate-50', 'hover:bg-red-50', 'text-slate-700', 'cursor-pointer', 'border', 'border-slate-200');
-
-                        let isSelected = false;
-                        let isStart = false;
-                        let isEnd = false;
-
-                        if (startDate && !endDate && thisDate.getTime() === startDate.getTime()) {
-                            isStart = true;
-                        } else if (startDate && endDate) {
-                            if (thisDate.getTime() === startDate.getTime()) isStart = true;
-                            if (thisDate.getTime() === endDate.getTime()) isEnd = true;
-                            if (thisDate > startDate && thisDate < endDate) isSelected = true;
-                        }
-
-                        if (isStart || isEnd) {
-                            dayDiv.className = "h-10 sm:h-11 flex items-center justify-center rounded-xl text-sm font-bold bg-arirang-red text-white shadow-sm cursor-pointer";
-                        } else if (isSelected) {
-                            dayDiv.className = "h-10 sm:h-11 flex items-center justify-center text-sm font-medium bg-red-100 text-red-900 cursor-pointer";
-                        }
-
-                        dayDiv.addEventListener('click', () => {
-                            handleDateSelection(thisDate);
-                        });
+                    // Dải nền nối liền từ ngày bắt đầu đến ngày kết thúc
+                    if (inBand) {
+                        const connectLeft = thisDate > startDate && col !== 0 && day !== 1;
+                        const connectRight = thisDate < endDate && col !== 6 && day !== totalDays;
+                        const band = document.createElement('div');
+                        band.className = 'absolute inset-y-0 bg-rose-100';
+                        band.style.left = isStart ? '50%' : (connectLeft ? '-4px' : '0');
+                        band.style.right = isEnd ? '50%' : (connectRight ? '-4px' : '0');
+                        const rl = connectLeft ? '0' : '12px';
+                        const rr = connectRight ? '0' : '12px';
+                        band.style.borderRadius = `${rl} ${rr} ${rr} ${rl}`;
+                        cell.appendChild(band);
                     }
+
+                    if (isStart || isEnd) {
+                        // Hai đầu: đỏ đậm (áp dụng cả cho ô vàng)
+                        label.className = base + " font-bold bg-arirang-red text-white shadow-md cursor-pointer";
+                    } else if (inBand) {
+                        // Các ngày ở giữa: chỉ chữ, nền là dải phía sau
+                        label.className = base + " font-semibold text-red-700 cursor-pointer";
+                    } else if (yellow) {
+                        label.className = base + " font-bold bg-yellow-200 text-slate-900 hover:bg-yellow-300 shadow-sm cursor-pointer";
+                    } else {
+                        label.className = base + " font-medium bg-slate-50 hover:bg-red-50 text-slate-700 border border-slate-200 cursor-pointer";
+                    }
+
+                    cell.addEventListener('click', () => handleDateSelection(thisDate, yellow));
                 }
 
-                calendarDaysEl.appendChild(dayDiv);
+                cell.appendChild(label);
+                calendarDaysEl.appendChild(cell);
+            }
+
+            // Luôn đủ 6 hàng (42 ô) để khung lịch không bị nhảy độ cao giữa các tháng
+            const filled = firstDayIndex + totalDays;
+            for (let i = filled; i < 42; i++) {
+                const empty = document.createElement('div');
+                empty.className = cellH;
+                calendarDaysEl.appendChild(empty);
             }
         }
 
-        function handleDateSelection(date) {
+        function handleDateSelection(date, isYellow) {
+            let conflict = false;
+
             if (!startDate || (startDate && endDate)) {
+                // Chọn ngày bắt đầu mới
                 startDate = date;
                 endDate = null;
-            } else if (startDate && !endDate) {
-                if (date < startDate) {
-                    startDate = date;
-                } else {
-                    let hasRedBetween = false;
-                    let temp = new Date(startDate);
-                    while (temp <= date) {
-                        if (isBookedRed(temp)) {
-                            hasRedBetween = true;
-                            break;
-                        }
-                        temp.setDate(temp.getDate() + 1);
+                warnAcknowledged = false;
+            } else if (date < startDate) {
+                // Bấm ngày trước ngày bắt đầu -> đổi ngày bắt đầu
+                startDate = date;
+                warnAcknowledged = false;
+            } else {
+                // Chọn ngày kết thúc: kiểm tra có đè lên ngày đã thuê không
+                let temp = new Date(startDate);
+                while (temp <= date) {
+                    if (isBookedRed(temp)) {
+                        conflict = true;
+                        break;
                     }
+                    temp.setDate(temp.getDate() + 1);
+                }
 
-                    if (hasRedBetween) {
-                        alert("Khoảng thời gian bạn chọn chứa ngày đã có người thuê! Vui lòng chọn lại.");
-                        startDate = null;
-                        endDate = null;
-                    } else {
-                        endDate = date;
-                    }
+                if (conflict) {
+                    startDate = null;
+                    endDate = null;
+                    warnAcknowledged = false;
+                } else {
+                    endDate = date;
                 }
             }
+
             renderCalendar(currentYear, currentMonth);
             updateSummary();
+            updateHint();
+
+            if (conflict) {
+                // Trùng lịch: chỉ hiện popup trùng lịch (không hiện popup ô vàng), lựa chọn đã được xóa để chọn lại từ đầu
+                conflictPopup.classList.remove('hidden');
+            } else if (isYellow && !warnAcknowledged) {
+                // Ô vàng: hiện cảnh báo 1 lần cho mỗi lượt chọn
+                warningPopup.classList.remove('hidden');
+                warnAcknowledged = true;
+            }
         }
+
+        // Dòng nhắc: hiện khi đang chọn, ẩn khi đã chọn xong
+        function updateHint() {
+            let text = '';
+            if (!startDate) text = 'Hãy chọn ngày bắt đầu';
+            else if (!endDate) text = 'Hãy chọn ngày kết thúc';
+
+            if (text) {
+                hintEl.textContent = text;
+                hintEl.classList.remove('opacity-0', '-translate-y-1');
+            } else {
+                hintEl.classList.add('opacity-0', '-translate-y-1');
+            }
+        }
+
+        // Đổi giữa Army Bomb 1 / 2
+        function setBomb(n) {
+            currentBomb = n;
+            startDate = null;
+            endDate = null;
+            warnAcknowledged = false;
+
+            // Luôn quay về tháng hiện tại khi đổi bomb
+            const today = new Date();
+            currentYear = today.getFullYear();
+            currentMonth = today.getMonth();
+
+            bombTabs.forEach(btn => {
+                const active = Number(btn.dataset.bomb) === n;
+                btn.classList.toggle('bg-arirang-red', active);
+                btn.classList.toggle('text-white', active);
+                btn.classList.toggle('shadow-md', active);
+                btn.classList.toggle('bg-slate-100', !active);
+                btn.classList.toggle('text-slate-700', !active);
+                btn.classList.toggle('hover:bg-slate-200', !active);
+            });
+
+            summaryBombEl.innerText = `Army Bomb ${n}`;
+            renderCalendar(currentYear, currentMonth);
+            updateSummary();
+            updateHint();
+        }
+
+        bombTabs.forEach(btn => btn.addEventListener('click', () => setBomb(Number(btn.dataset.bomb))));
 
         function updateSummary() {
             if (!startDate || !endDate) {
                 summaryStartEl.innerText = startDate ? formatDate(startDate) : "Chưa chọn";
                 summaryEndEl.innerText = endDate ? formatDate(endDate) : "Chưa chọn";
                 summaryDaysEl.innerText = "0 ngày";
-                summaryPriceEl.innerText = "Chưa có giá";
+                summaryPriceEl.innerText = "---";
                 return;
             }
 
@@ -485,6 +606,6 @@
             renderCalendar(currentYear, currentMonth);
         });
 
-        renderCalendar(currentYear, currentMonth);
+        setBomb(1);
     })();
 </script>

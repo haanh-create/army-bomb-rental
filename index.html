@@ -31,7 +31,7 @@
         }
 
         #gia-thue p,
-        .faq-btn + div p,
+        #chinh-sach .policy-text,
         #check-lich .bg-red-50\/60 {
             text-align: justify;
         }
@@ -54,7 +54,7 @@
                 <span class="font-extrabold text-base sm:text-lg text-slate-900 tracking-wider">ARMY BOMB RENTAL</span>
             </a>
 
-             <nav class="hidden md:flex items-center space-x-8 text-base font-medium relative" id="nav-menu"></nav>
+             <nav class="hidden md:flex items-center space-x-8 text-base font-medium relative" id="nav-menu">
                 <span id="nav-indicator"
                     class="absolute bottom-0 h-0.5 bg-arirang-red transition-all duration-300 ease-out rounded-full"></span>
 
@@ -287,121 +287,244 @@
     <section id="chinh-sach" class="relative py-20 px-4 sm:px-6 overflow-hidden border-t border-slate-200">
 
         <div class="absolute inset-0 z-0">
-            <img src="https://kenh14cdn.com/203336854389633024/2026/3/20/hq720-10-134712-1773993556728-17739935569231580449276.jpg"
+            <img src="backgrchinhsach.jpg"
                 alt="Background Chính Sách" class="w-full h-full object-cover object-center scale-105 opacity-30">
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="relative z-10 max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-2xl sm:text-3xl font-bold text-arirang-red mb-3">Chính sách cho thuê</h2>
-                <p class="text-lg sm:text-xl font-normal text-slate-800 max-w-4xl mx-auto whitespace-nowrap">Mọi quy
-                    định và hướng dẫn chi tiết giúp bạn dễ dàng hơn khi thuê ở mình</p>
+                <p class="text-lg sm:text-xl font-normal text-slate-800 max-w-4xl mx-auto">Mọi quy định và hướng dẫn chi tiết giúp bạn dễ dàng hơn khi thuê ở mình</p>
             </div>
-            <div class="space-y-4" id="faq-accordion">
-                
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>1. Thông tin về bomb mình cho thuê</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• Mình cho thuê là <strong class="text-arirang-red">bomb ver 4 </strong> </p>
-                            <p>• <strong class="text-arirang-red">Số lượng tối đa:</strong> 2 bomb/lần.</p>
-                            <p>• Khi thuê bạn sẽ nhận kèm dây đeo, túi đựng và hỗ trợ pin cho bạn test thử.</p>
+
+            <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
+
+                <!-- 1. Về Army Bomb -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">💜</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Về Army Bomb mình cho thuê</h3>
+                </div>
+                    <ul class="space-y-3 text-base text-slate-900 leading-relaxed">
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Loại bomb: <strong class="text-arirang-red">Army Bomb ver 4</strong>.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Tình trạng: <strong class="text-arirang-red">Like new 99%</strong>, vì mình chỉ mới bóc seal để ngắm.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Mỗi lần cho thuê, mình đều chủ động quay video check tình trạng rõ ràng trước khi giao.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Khi thuê bạn nhận kèm dây đeo, túi đựng và mình hỗ trợ pin để bạn test thử.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text"><strong class="text-arirang-red">Số lượng tối đa:</strong> 2 bomb/lần.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. Cách thuê -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">📝</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Cách thuê (5 bước)</h3>
+                </div>
+                    <ol class="space-y-4 text-base text-slate-900 leading-relaxed">
+                    <li class="flex gap-3">
+                        <span class="w-7 h-7 rounded-full bg-arirang-red text-white text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                        <span class="policy-text">Check lịch trống ở <a href="#check-lich" class="text-arirang-red font-semibold underline">phần bên dưới</a> và chọn ngày bạn muốn thuê.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="w-7 h-7 rounded-full bg-arirang-red text-white text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                        <span class="policy-text">Liên hệ mình qua Facebook, Instagram hoặc Zalo (<a href="#lien-he" class="text-arirang-red font-semibold underline">xem cuối mục này</a>).</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="w-7 h-7 rounded-full bg-arirang-red text-white text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                        <span class="policy-text">Cọc slot <strong class="text-arirang-red">50k</strong> để mình giữ lịch cho bạn.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="w-7 h-7 rounded-full bg-arirang-red text-white text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                        <span class="policy-text">Gần đến ngày trao đổi, mình liên hệ để bạn cọc tiền bomb. Tiền cọc slot sẽ được <strong class="text-arirang-red">cộng dồn</strong> vào tiền cọc bomb.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="w-7 h-7 rounded-full bg-arirang-red text-white text-sm font-bold flex items-center justify-center flex-shrink-0 mt-0.5">5</span>
+                        <span class="policy-text">Nhận bomb, dùng, trả bomb, rồi mình <strong class="text-arirang-red">hoàn cọc</strong> cho bạn.</span>
+                    </li>
+                    </ol>
+                </div>
+
+                <!-- 3. Đặt cọc -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">💰</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Đặt cọc</h3>
+                </div>
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                    <div class="rounded-xl bg-rose-50 border border-rose-100 p-3 text-center">
+                        <p class="text-xs sm:text-sm text-slate-600">Cọc slot</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-arirang-red">50k</p>
+                    </div>
+                    <div class="rounded-xl bg-rose-50 border border-rose-100 p-3 text-center">
+                        <p class="text-xs sm:text-sm text-slate-600">Cọc 1 bomb</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-arirang-red">700k</p>
+                    </div>
+                    <div class="rounded-xl bg-rose-50 border border-rose-100 p-3 text-center">
+                        <p class="text-xs sm:text-sm text-slate-600">Cọc 2 bomb</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-arirang-red">1.300k</p>
+                    </div>
+                    </div>
+                    <ul class="space-y-3 text-base text-slate-900 leading-relaxed">
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Cọc slot để giữ lịch, sau đó cộng dồn vào tiền cọc bomb khi bạn thuê.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Tiền cọc bomb được <strong class="text-arirang-red">hoàn lại</strong> sau khi bomb về lại tay mình an toàn.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Bạn ở <strong class="text-arirang-red">Hà Nội</strong> muốn cọc ít hơn: để lại <strong class="text-arirang-red">CCCD gốc chính chủ</strong> cho mình giữ và cọc <strong class="text-arirang-red">50%</strong>, tức 350k (1 bomb) hoặc 650k (2 bomb).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. Nhận và trả bomb -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">🚚</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Nhận và trả bomb</h3>
+                </div>
+                    <div class="space-y-3 text-base text-slate-900 leading-relaxed">
+                        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                            <p class="font-bold mb-1">📍 Ở Hà Nội: gặp trực tiếp (ưu tiên)</p>
+                            <p class="policy-text">Mình ưu tiên giao dịch trực tiếp để hạn chế tối đa bomb bị xước hoặc hư hỏng do bên vận chuyển.</p>
+                        </div>
+                        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                            <p class="font-bold mb-2">📦 Ngoại tỉnh: mình hỗ trợ ship</p>
+                            <ul class="space-y-2">
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Ship chiều đi (mình → bạn): bạn trả phí.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Ship chiều về (bạn → mình): mình hỗ trợ phí.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Hai bên cùng gói thật cẩn thận. Mình sẽ cố gắng gói sao cho không bị hư hỏng, và bạn cũng gói kỹ khi trả về cho mình.</span>
+                        </li>
+                            </ul>
+                        </div>
+                        <p class="policy-text">🎥 Lúc gói hàng và unbox, mình đều quay lại quá trình để có bằng chứng làm việc với bạn và đơn vị vận chuyển trong trường hợp xấu nhất.</p>
+                    </div>
+                </div>
+
+                <!-- 5. Hư hỏng -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">🛠️</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Hư hỏng trong lúc thuê</h3>
+                </div>
+                    <div class="grid sm:grid-cols-2 gap-4 text-base text-slate-900 leading-relaxed">
+                        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                            <p class="font-bold mb-2">Do bạn gây ra</p>
+                            <ul class="space-y-2">
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Hai bên thương lượng mức đền bù phần trăm tương ứng, hợp lý nhất.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Mình trừ vào tiền cọc và hoàn phần dư cho bạn.</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text"><strong class="text-arirang-red">Nếu thiệt hại nặng hơn, bạn bắt buộc bồi thường toàn bộ giá trị bomb.</strong></span>
+                        </li>
+                            </ul>
+                        </div>
+                        <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
+                            <p class="font-bold mb-2">Do vận chuyển</p>
+                            <ul class="space-y-2">
+                        <li class="flex gap-2">
+                            <span class="text-arirang-red font-bold">•</span>
+                            <span class="policy-text">Đền bù tương ứng với mức bên vận chuyển chi trả.</span>
+                        </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>2. Về việc đặt cọc bao nhiêu khi thuê</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• Nếu chỉ thuê 1 bạn sẽ phải cọc <strong class="text-arirang-red">700k</strong> cho 1 lần thuê, nếu bạn thuê cả 2 thì bạn chỉ phải cọc <strong class="text-arirang-red">1.300k</strong> cho 1 lần thuê.</p>
-                            <p>• Với các bạn ở Hà Nội muốn cọc ít hơn có thể để lại CCCD chính chủ cho mình và cọc 50%.</p>
-                            <p>• Tiền này sẽ được hoàn lại sau khi bomb về lại tay mình an toàn.</p>
-                            <p>• <strong class="text-arirang-red">Tiền cọc slot là 50k,</strong> gần đến ngày trao đổi bạn sẽ được liên hệ để cọc phần tiền thuê bomb nhé.</p>
+                <!-- 6. Đổi lịch, hủy lịch, trả muộn -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">🔁</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Đổi lịch, hủy lịch và trả muộn</h3>
+                </div>
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="space-y-3">
+                            <p class="font-bold text-slate-900">Đổi lịch / hủy lịch</p>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Muốn đổi lịch (ngày mới còn trống)</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Miễn phí</span>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Hủy khi mới cọc slot</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold sm:text-right">Mất tiền cọc slot 50k</span>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Hủy khi đã cọc bomb: bất khả kháng (thiên tai, concert hủy,...)</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Hoàn cọc 100%</span>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Hủy khi đã cọc bomb: lý do khác</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold sm:text-right">Hoàn cọc 50%</span>
+                        </div>
+                            <p class="policy-text text-sm sm:text-base text-slate-700 leading-relaxed">Thay vì hủy, bạn có quyền nhượng slot thuê cho bạn khác và không mất tiền cọc.</p>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="font-bold text-slate-900">Trả bomb muộn</p>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Trả muộn đến 12h trưa ngày hôm sau</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold sm:text-right">Miễn phí</span>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Trả sau 12h trưa ngày hôm sau</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm font-bold sm:text-right">Tính thêm 1 ngày 20k</span>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <span class="text-base text-slate-900">Sau 2 ngày vẫn chưa trả</span>
+                            <span class="inline-block self-start sm:self-auto px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm font-bold sm:text-right">Mình xin phép CBGD (cảnh báo giao dịch)</span>
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>3. Cách thức nhận Bomb và có cho thuê ngoại tỉnh</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• <strong class="text-arirang-red">Mình ưu tiên giao dịch trực tiếp ở Hà Nội</strong> để hạn chế tối thiểu bomb bị xước hoặc hư hỏng do bên vận chuyển.</p>
-                            <p>• Mình vẫn sẽ hỗ trợ ship đối với các bạn không thể gdtt. Mình hỗ trợ ship chiều về, ship đi các bạn trả. Mình sẽ cố gắng gói sao cho không df và bạn cũng phải có trách nhiệm gói sao cho không df khi trả về cho mình. 
-                                Lúc gói hàng hoặc unbox sẽ đều ghi lại quá trình để có bằng chứng làm việc với cả bạn và đơn vị vận chuyển trong trường hợp xấu nhất.</p>
-                        </div>
-                    </div>
+                <!-- 7. Liên hệ -->
+                <div id="lien-he" class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 p-6 sm:p-7 flex flex-col md:col-span-2 bg-rose-50/90 scroll-mt-24">
+                <div class="flex items-center gap-3 mb-5">
+                    <span class="w-11 h-11 rounded-full bg-rose-100 text-arirang-red flex items-center justify-center text-xl shadow-sm flex-shrink-0">💬</span>
+                    <h3 class="font-bold text-lg sm:text-xl text-slate-900">Liên hệ đặt lịch</h3>
                 </div>
-
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>4. Tình trạng Bomb</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• <strong class="text-arirang-red">Like new 99%</strong> vì mình chỉ mới bóc seal ngắm.</p>
-                            <p>• Mỗi lần cho thuê thì mình sẽ đều chủ động quay video check tình trạng rõ ràng trước khi giao.</p>
-                        </div>
+                    <p class="policy-text text-base text-slate-900 leading-relaxed mb-4">Để tiết kiệm thời gian, bạn hãy chủ động check lịch trống ở bên dưới sau đó contact trực tiếp với mình qua một trong các phương thức sau:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.facebook.com/joonie.kim.742047" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 text-sm font-semibold hover:bg-blue-100 transition-colors">🌐 Facebook</a>
+                        <a href="https://www.instagram.com/adnapatsuj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-50 text-pink-700 text-sm font-semibold hover:bg-pink-100 transition-colors">📸 Instagram</a>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-slate-800 text-sm font-semibold">📱 Zalo/SĐT: 0945163299</div>
                     </div>
-                </div>
-
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>5. Trong trường hợp hư hỏng trong lúc thuê</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• Sự cố hỏng hóc gây ra từ bạn: Đền bù phần trăm tương ứng sau khi hai bên thương lượng với nhau một cách hợp lý nhất. Sau đấy trừ vào tiền cọc và mình sẽ hoàn phần dư cho bạn.<strong class="text-arirang-red"> Nếu thiệt hại nặng hơn bạn bắt buộc bồi thường toàn bộ giá trị bomb.</strong></p>
-                            <p>• Sự cố hỏng hóc gây ra từ vận chuyển: Đền bù tương ứng với bên vận chuyển chi trả.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>6. Chính sách hủy lịch/đổi lịch/quá thời gian trả bomb</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-2">
-                            <p>• Hỗ trợ đổi lịch <strong class="text-arirang-red">free</strong> miễn là ngày đó còn trống.</p>
-                            <p>• Đối với các trường hợp chỉ mới cọc tiền thuê slot: sẽ mất phần tiền cọc đó.</p>
-                            <p>• Đối với các trường hợp đã cọc tiền thuê bomb: Hỗ trợ <strong class="text-arirang-red">hoàn cọc 100% cho các trường hợp bất khả kháng</strong> (như thiên tai, concert hủy, ...). <strong class="text-arirang-red">Các trường hợp hủy lịch khác chỉ hoàn cọc 50%,</strong> bạn có quyền nhượng slot thuê cho các bạn khác mà không mất tiền cọc.</p>
-                            <p>• Nếu giả sử bạn chưa kịp trả đúng hạn thì mình hỗ trợ trả muộn thêm trong ngày hôm sau cho bạn sắp xếp thời gian. Quá hạn sẽ bị tính phí thêm 1 ngày không có sự kiện.<strong class="text-arirang-red"> Sau 2 ngày không trả mình xin phép CBGD.</strong> </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl border border-pink-300 hover:border-arirang-red shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 text-left font-bold text-lg sm:text-xl text-slate-900 flex justify-between items-center focus:outline-none hover:bg-red-50/40 transition-colors">
-                        <span>7. Cách thuê và phương thức liên hệ</span>
-                        <svg class="faq-icon w-5 h-5 text-slate-500 transform transition-transform duration-300 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                        <div class="text-base sm:text-lg text-slate-900 pb-5 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
-                            <p>• Để tiết kiệm thời gian, bạn hãy chủ động check lịch trống ở bên dưới sau đó contact trực tiếp với mình qua một trong các phương thức sau:</p>
-                            <div class="flex flex-wrap gap-3 pt-1">
-                                <a href="https://www.facebook.com/joonie.kim.742047" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 text-blue-700 text-sm font-semibold hover:bg-blue-100 transition-colors">🌐 Facebook</a>
-                                <a href="https://www.instagram.com/adnapatsuj/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-50 text-pink-700 text-sm font-semibold hover:bg-pink-100 transition-colors">📸 Instagram</a>
-                                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 text-slate-800 text-sm font-semibold">📱 Zalo/SĐT: 0945163299</div>
-                            </div>
-                            <p>• Ngoài ra có bất cứ thắc mắc gì hãy cứ nhắn hỏi mình nhé!</p>
-                        </div>
-                    </div>
+                    <p class="text-base text-slate-900 mt-4">Ngoài ra có bất cứ thắc mắc gì hãy cứ nhắn hỏi mình nhé!</p>
                 </div>
 
             </div>
+        </div>
     </section>
 
     <section id="check-lich" class="py-16 sm:py-20 px-4 sm:px-6 bg-slate-50 border-t border-slate-200">
@@ -427,28 +550,6 @@
             });
         });
 
-        const faqButtons = document.querySelectorAll('.faq-btn');
-        faqButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const content = button.nextElementSibling;
-                const icon = button.querySelector('.faq-icon');
-                const isOpen = content.style.maxHeight;
-
-                faqButtons.forEach(btn => {
-                    const otherContent = btn.nextElementSibling;
-                    const otherIcon = btn.querySelector('.faq-icon');
-                    otherContent.style.maxHeight = null;
-                    otherIcon.style.transform = 'rotate(0deg)';
-                });
-
-                if (!isOpen) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-
         fetch('lich-section.html')
                 .then(response => response.text())
                 .then(data => {
@@ -461,156 +562,6 @@
                         oldScript.replaceWith(newScript);
                     });
                 });
-
-        function initCalendar() {
-            const now = new Date();
-            let currentYear = now.getFullYear();
-            let currentMonth = now.getMonth();
-
-            let startDate = null;
-            let endDate = null;
-
-            const monthNames = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
-
-            const calendarDaysEl = document.getElementById('calendar-days');
-            const calendarMonthYearEl = document.getElementById('calendar-month-year');
-            const prevMonthBtn = document.getElementById('prev-month');
-            const nextMonthBtn = document.getElementById('next-month');
-
-            const summaryStartEl = document.getElementById('summary-start');
-            const summaryEndEl = document.getElementById('summary-end');
-            const summaryDaysEl = document.getElementById('summary-days');
-            const summaryPriceEl = document.getElementById('summary-price');
-
-            if (!calendarDaysEl) return;
-
-            function renderCalendar(year, month) {
-                calendarMonthYearEl.innerText = `${monthNames[month]}, ${year}`;
-                calendarDaysEl.innerHTML = '';
-
-                const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7;
-                const totalDays = new Date(year, month + 1, 0).getDate();
-
-                for (let i = 0; i < firstDayIndex; i++) {
-                    const emptyDiv = document.createElement('div');
-                    calendarDaysEl.appendChild(emptyDiv);
-                }
-
-                for (let day = 1; day <= totalDays; day++) {
-                    const dayDiv = document.createElement('div');
-                    dayDiv.innerText = day;
-                    dayDiv.className = "h-9 sm:h-10 flex items-center justify-center rounded-xl text-sm font-medium transition-all cursor-pointer select-none";
-
-                    const thisDate = new Date(year, month, day);
-                    const todayDateObj = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-                    if (thisDate < todayDateObj) {
-                        dayDiv.classList.add('text-slate-300', 'bg-slate-50', 'cursor-not-allowed');
-                    } else {
-                        dayDiv.classList.add('hover:bg-red-50', 'text-slate-700');
-
-                        let isSelected = false;
-                        let isStart = false;
-                        let isEnd = false;
-
-                        if (startDate && !endDate && thisDate.getTime() === startDate.getTime()) {
-                            isStart = true;
-                        } else if (startDate && endDate) {
-                            if (thisDate.getTime() === startDate.getTime()) isStart = true;
-                            if (thisDate.getTime() === endDate.getTime()) isEnd = true;
-                            if (thisDate > startDate && thisDate < endDate) isSelected = true;
-                        }
-
-                        if (isStart || isEnd) {
-                            dayDiv.className = "h-9 sm:h-10 flex items-center justify-center rounded-xl text-sm font-bold bg-arirang-red text-white shadow-sm";
-                        } else if (isSelected) {
-                            dayDiv.className = "h-9 sm:h-10 flex items-center justify-center text-sm font-medium bg-red-100 text-red-900";
-                        }
-
-                        dayDiv.addEventListener('click', () => {
-                            handleDateClick(thisDate);
-                        });
-                    }
-
-                    calendarDaysEl.appendChild(dayDiv);
-                }
-            }
-
-            function handleDateClick(date) {
-                if (!startDate || (startDate && endDate)) {
-                    startDate = date;
-                    endDate = null;
-                } else if (startDate && !endDate) {
-                    if (date < startDate) {
-                        startDate = date;
-                    } else {
-                        endDate = date;
-                    }
-                }
-                renderCalendar(currentYear, currentMonth);
-                updateSummary();
-            }
-
-            function updateSummary() {
-                if (!startDate) {
-                    summaryStartEl.innerText = "Chưa chọn";
-                    summaryEndEl.innerText = "Chưa chọn";
-                    summaryDaysEl.innerText = "0 ngày";
-                    summaryPriceEl.innerText = "0 đ";
-                    return;
-                }
-
-                const formatDate = (d) => `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth() + 1).toString().padStart(2, '0')}/${d.getFullYear()}`;
-                summaryStartEl.innerText = formatDate(startDate);
-
-                if (!endDate) {
-                    summaryEndEl.innerText = "Chưa chọn";
-                    summaryDaysEl.innerText = "1 ngày (tạm tính)";
-                    let price = 70 * 2;
-                    summaryPriceEl.innerText = price.toLocaleString('vi-VN') + '.000 đ';
-                    return;
-                }
-
-                summaryEndEl.innerText = formatDate(endDate);
-
-                const diffTime = Math.abs(endDate - startDate);
-                const n = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-                summaryDaysEl.innerText = `${n} ngày`;
-
-                let total = 0;
-                if (n == 1) {
-                    total = 70;
-                } else if (n == 2) {
-                    total = 70 * 2;
-                } else if (n === 3) {
-                    total = 70 * 2 + 20;
-                } else {
-                    total = (n - 2) * 70 + 40;
-                }
-
-                summaryPriceEl.innerText = total.toLocaleString('vi-VN') + '.000 đ';
-            }
-
-            prevMonthBtn.addEventListener('click', () => {
-                currentMonth--;
-                if (currentMonth < 0) {
-                    currentMonth = 11;
-                    currentYear--;
-                }
-                renderCalendar(currentYear, currentMonth);
-            });
-
-            nextMonthBtn.addEventListener('click', () => {
-                currentMonth++;
-                if (currentMonth > 11) {
-                    currentMonth = 0;
-                    currentYear++;
-                }
-                renderCalendar(currentYear, currentMonth);
-            });
-
-            renderCalendar(currentYear, currentMonth);
-        }
     </script>
 </body>
 
