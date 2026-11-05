@@ -265,8 +265,13 @@
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let currentBomb = 1;
         const bookings = {
-            1: [{ start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) }],
-            2: [{ start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) }]
+            1: [
+                { start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) }
+            ],
+            2: [
+                { start: new Date(2026, 11, 4), end: new Date(2026, 11, 5) },
+                { start: new Date(2026, 11, 18), end: new Date(2026, 11, 23) }
+            ]
         };
 
         function isBookedRed(date) {
